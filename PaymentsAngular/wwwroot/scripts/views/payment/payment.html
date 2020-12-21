@@ -1,0 +1,44 @@
+﻿<div class="container-fluid">
+    <h2>Payments</h2>
+    <p>
+        <a href="#/addPayment" class="btn btn-primary" style="float:right">Add New</a>
+        <br />
+        <br />
+    </p>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            OWNER NAME
+                        </th>
+                        <th>
+                            CARD NUMBER
+                        </th>
+                        <th>
+                            EXPIRATION DATE
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in Payments.data">
+                        <td>{{item.ownerName}}</td>
+                        <td>{{item.cardNumber}}</td>
+                        <td>{{item.expirationDate}}</td>
+                        <td>
+                            <a href="#/updatePayment/{{item.id}}">Edit</a> |
+                            <a href="" ng-click="deletedData(item.id)" data-toggle="modal">Delete</a>
+                        </td>
+                    </tr>
+                    <tr ng-if="!Payments.data || Payments.data.length == 0">
+                        <td colspan="4" style="text-align:center">
+                            No user data to display
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿<form class="form-horizontal" name="formUpdatePayment" ng-submit="updatePayment(Payment)" novalidate>
+    <h4>Update a new payment</h4>
+    <hr />
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Owner Name</label>
+        <div class="col-lg-10">
+            <input type="text" placeholder="Angular" class="form-control" name="ownerName" ng-model="Payment.ownerName" required ng-maxlength="32" />
+            <span class="text-danger" ng-show="(formUpdatePayment.ownerName.$touched || formUpdatePayment.ownerName.$dirty) && formUpdatePayment.ownerName.$invalid">
+                <span ng-show="formUpdatePayment.ownerName.$error.required">Name is required</span>
+                <span ng-show="formUpdatePayment.ownerName.$error.maxlength">Name must be less than or equal 32</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Card Number</label>
+        <div class="col-lg-10">
+            <input type="text" placeholder="0000000000000000" class="form-control" name="cardNumber" ng-model="Payment.cardNumber" required ng-maxlength="16" ng-minlength="16" />
+            <span class="text-danger" ng-show="(formUpdatePayment.cardNumber.$touched || formUpdatePayment.cardNumber.$dirty) && formUpdatePayment.cardNumber.$invalid">
+                <span ng-show="formUpdatePayment.cardNumber.$error.required">Card Number is required</span>
+                <span ng-show="formUpdatePayment.cardNumber.$error.maxlength">Card Number must be 16</span>
+                <span ng-show="formUpdatePayment.cardNumber.$error.minlength">Card Number must be 16</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Expiration Date</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" placeholder="12/09" name="expirationDate" ng-model="Payment.expirationDate" required ng-maxlength="5" ng-minlength="5">
+            <span class="text-danger" ng-show="(formUpdatePayment.expirationDate.$touched || formUpdatePayment.expirationDate.$dirty) && formUpdatePayment.expirationDate.$invalid">
+                <span ng-show="formUpdatePayment.expirationDate.$error.required">Expiration Date is required</span>
+                <span ng-show="formUpdatePayment.expirationDate.$error.maxlength">Expiration Date must be 5</span>
+                <span ng-show="formUpdatePayment.expirationDate.$error.minlength">Expiration Date must be 5</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">CVV</label>
+        <div class="col-lg-10">
+            <input type="password" placeholder="*******" class="form-control" name="cvv" ng-model="Payment.cvv" ng-maxlength="8" ng-minlength="4" required>
+            <span class="text-danger" ng-show="(formUpdatePayment.cvv.$touched || formUpdatePayment.cvv.$dirty) && formUpdatePayment.cvv.$invalid">
+                <span ng-show="formUpdatePayment.cvv.$error.required">CVV is required</span>
+                <span ng-show="formUpdatePayment.cvv.$error.maxlength">CVV must be 8 </span>
+                <span ng-show="formUpdatePayment.cvv.$error.minlength">CVV must be less than or equal 4</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class=" col-lg-offset-2 col-lg-10">
+            <input type="submit" class="btn btn-primary" value="Update" ng-disabled="formUpdatePayment.$invalid" />
+            <a href="#/" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+</form>
