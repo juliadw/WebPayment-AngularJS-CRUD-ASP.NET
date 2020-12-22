@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .controller('PaymentController', ['$scope', '$location', 'paymentService', function ($scope, $location, paymentService) {
+        .controller('PaymentController', ['$scope', 'paymentService', function ($scope, paymentService) {
             $scope.Payments = {
                 totalPages: 0,
                 page: 0,

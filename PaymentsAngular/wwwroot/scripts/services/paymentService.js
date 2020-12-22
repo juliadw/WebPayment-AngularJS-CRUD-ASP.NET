@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .factory('paymentService', ['$http', '$q', function ($http, $q) {
+        .factory('paymentService', ['$http', function ($http) {
             var serviceBase = 'https://localhost:5051';
             var service = {};
 

@@ -7,6 +7,14 @@
     </p>
     <div class="panel panel-default">
         <div class="panel-body">
+            <div class="col-lg-6">
+                <div class="form-group pull-left">
+                    <label>Search :</label>
+                    <label>
+                        <input type="text" class="form-control" ng-model="searchText" style="font-weight:normal" />
+                    </label>
+                </div>
+            </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -23,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="item in Payments.data">
+                    <tr ng-repeat="item in Payments.data | filter: searchText ">
                         <td>{{item.ownerName}}</td>
                         <td>{{item.cardNumber}}</td>
                         <td>{{item.expirationDate}}</td>
@@ -32,7 +40,7 @@
                             <a href="" ng-click="deletedData(item.id)" data-toggle="modal">Delete</a>
                         </td>
                     </tr>
-                    <tr ng-if="!Payments.data || Payments.data.length == 0">
+                    <tr ng-if="!Payments.data || ( Payments.data | filter: searchText ).length == 0">
                         <td colspan="4" style="text-align:center">
                             No user data to display
                         </td>
